@@ -8,13 +8,13 @@ app.use(cors());
 
 app.use(express.json());
 
-// //User router
-// const userRouter = require("./routes/userRoutes.js");
-// app.use("/user", userRouter);
+//User router
+const userRouter = require("./routes/userRoutes.js");
+app.use("/user", userRouter);
 
-// //Clothes router
-// const clothesRouter = require("./routes/clothRoutes.js");
-// app.use("/cloth", clothesRouter);
+//Lost and Found router
+const lostRouter = require("./routes/lostRoutes.js");
+app.use("/lost", lostRouter);
 
 // //store Offers router
 // const storeOfferRouter = require("./routes/storeOffersRoutes.js");
