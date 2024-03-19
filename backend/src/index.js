@@ -16,9 +16,9 @@ app.use("/user", userRouter);
 const lostRouter = require("./routes/lostRoutes.js");
 app.use("/lost", lostRouter);
 
-// //store Offers router
-// const storeOfferRouter = require("./routes/storeOffersRoutes.js");
-// app.use("/offer", storeOfferRouter);
+//store Offers router
+const loyaltyRouter = require("./routes/loyaltyRoutes.js");
+app.use("/loyal", loyaltyRouter);
 
 // //store Items router
 // const storeItemRouter = require("./routes/storeItemsRoutes.js");
