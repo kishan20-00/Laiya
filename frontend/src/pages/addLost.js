@@ -37,7 +37,7 @@ export default function AddLost(){
   return (
     <Form onSubmit={sendData}>
       <Form.Group controlId="userID">
-        <Form.Label>Loyalty ID</Form.Label>
+        <Form.Label>Lost ID</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter User ID"
@@ -49,7 +49,7 @@ export default function AddLost(){
       </Form.Group>
 
       <Form.Group controlId="name">
-        <Form.Label>Loyalty Name</Form.Label>
+        <Form.Label>Lost Item Name</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter Name"
@@ -61,7 +61,7 @@ export default function AddLost(){
       </Form.Group>
 
       <Form.Group controlId="email">
-        <Form.Label>Price</Form.Label>
+        <Form.Label>User Name</Form.Label>
         <Form.Control
           type="price"
           placeholder="Enter Price"
@@ -73,7 +73,7 @@ export default function AddLost(){
       </Form.Group>
 
       <Form.Group controlId="contactNumber">
-        <Form.Label>Store Name</Form.Label>
+        <Form.Label>Image</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter Contact Number"
@@ -84,36 +84,36 @@ export default function AddLost(){
         />
       </Form.Group>
 
-      <Form.Group controlId="password">
-        <Form.Label>Decription</Form.Label>
+      <Form.Group controlId="contact">
+        <Form.Label>Contact Number</Form.Label>
         <Form.Control
-          type="password"
+          type="text"
           placeholder="Enter Password"
-          name="password"
+          name="contact"
           onChange={(e)=>{
             setContactName(e.target.value);
           }}
         />
       </Form.Group>
 
-      <Form.Group controlId="password">
+      <Form.Group controlId="description">
         <Form.Label>Decription</Form.Label>
         <Form.Control
-          type="password"
+          type="text"
           placeholder="Enter Password"
-          name="password"
+          name="name"
           onChange={(e)=>{
             setDescription(e.target.value);
           }}
         />
       </Form.Group>
 
-      <Form.Group controlId="password">
-        <Form.Label>Decription</Form.Label>
+      <Form.Group controlId="status">
+        <Form.Label>Status</Form.Label>
         <Form.Control
-          type="password"
+          type="text"
           placeholder="Enter Password"
-          name="password"
+          name="status"
           onChange={(e)=>{
             setStatus(e.target.value);
           }}
@@ -121,7 +121,7 @@ export default function AddLost(){
       </Form.Group>
 
       <Button variant="primary" type="submit">
-        Register
+        Add
       </Button>
     </Form>
   );

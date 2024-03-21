@@ -5,22 +5,13 @@ exports.addNewUser= async (req, res) => {
  
     //constant variables for the attributes
     const {
-        userID,
       name,
        email,
        contactNumber,
        password,
      } = req.body;
   
-  
-    userDetails.findOne({userID: userID})
-      .then((savedUser) => {
-          if(savedUser) {
-              return res.status(422).json({error:"User already exists with that no"})
-          }
-  
           const newUser = new userDetails({
-            userID,
             name,
              email,
              contactNumber,
@@ -34,10 +25,10 @@ exports.addNewUser= async (req, res) => {
           
         })
       
-    }).catch((err) =>{
+    .catch((err) =>{
         
     })
-    }
+    };
 
 //delete existing one
 exports.deleteUser = async (req, res) => {
@@ -114,4 +105,32 @@ exports.viewOneUserName = async (req, res) => {
     } catch (error) {
         res.status(500).json({ status: "error", message: error.message });
     }
+};
+
+
+exports.login = async (req, res) => {
+  const { 
+    name, 
+    password } = req.body;
+
+  try {
+      // Find the user by username
+      const user = await userDetails.findOne({ name: name });
+
+      // If user not found, return error
+      if (!user) {
+          return res.status(404).json({ error: "User not found" });
+      }
+
+      // Check if the password matches
+      if (user.password !== password) {
+          return res.status(401).json({ error: "Incorrect password" });
+      }
+
+      // If username and password match, return success
+      res.status(200).json({ status: "success", user });
+  } catch (error) {
+      // Handle any errors that occur during the process
+      res.status(500).json({ error: error.message });
+  }
 };

@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const LostSchema = new Schema({
+const ShopsSchema = new Schema({
 
-  LostID: {
+  ShopID: {
     type: String,
     unique: true,
   },
-  LostItem:{
+  ShopName:{
     type: String,
   },
-  UserName:{
+  FloorNumber:{
     type: String,
     require: true,
 },
-  Image :{
+  Category :{
     type: String,     
    },
-  contactNumber : {
+  OwnerName : {
     type: Number,
     require: true
 },
@@ -32,8 +32,8 @@ status: {
 }
 })
 
-// Middleware to generate LostID before saving the document
-LostSchema.pre('save', async function (next) {
+// Middleware to generate ShopID before saving the document
+ShopsSchema.pre('save', async function (next) {
   try {
       if (!this.isNew) {
           // If the document is not new, do not generate a new ID
@@ -41,16 +41,16 @@ LostSchema.pre('save', async function (next) {
       }
 
       // Find the highest FloorID
-      const highestLost = await this.constructor.findOne({}, {}, { sort: { LostID: -1 } });
+      const highestShop = await this.constructor.findOne({}, {}, { sort: { ShopID: -1 } });
 
       let lastID = 1;
-      if (highestLost) {
+      if (highestShop) {
           // Extract the number part of the highest FloorID and increment it
-          lastID = parseInt(highestLost.LostID.split('_')[1]) + 1;
+          lastID = parseInt(highestShop.ShopID.split('_')[1]) + 1;
       }
 
       // Create the new FloorID by combining the prefix and the incremented number
-      this.LostID = `lost_${lastID}`;
+      this.ShopID = `shop_${lastID}`;
 
       next();
   } catch (error) {
@@ -58,7 +58,5 @@ LostSchema.pre('save', async function (next) {
   }
 });
 
-
-
-const Lost = mongoose.model("Lost", LostSchema);
-module.exports = Lost;
+const Shops = mongoose.model("Shops", ShopsSchema);
+module.exports = Shops;

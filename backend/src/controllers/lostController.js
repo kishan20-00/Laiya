@@ -5,7 +5,6 @@ exports.addNewLost= async (req, res) => {
  
     //constant variables for the attributes
     const {
-        LostID,
         LostItem,
         UserName,
         Image,
@@ -14,15 +13,7 @@ exports.addNewLost= async (req, res) => {
         status
      } = req.body;
   
-  
-    lostDetails.findOne({LostID: LostID})
-      .then((savedLost) => {
-          if(savedLost) {
-              return res.status(422).json({error:"Lost Detail already exists with that no"})
-          }
-  
           const newLost = new lostDetails({
-            LostID,
         LostItem,
         UserName,
         Image,
@@ -37,11 +28,10 @@ exports.addNewLost= async (req, res) => {
         }).catch((err) => {
           
         })
-      
-    }).catch((err) =>{
+      .catch((err) =>{
         
     })
-    }
+  };
 
 //delete existing one
 exports.deleteLost = async (req, res) => {

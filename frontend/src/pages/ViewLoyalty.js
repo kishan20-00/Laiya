@@ -67,7 +67,6 @@ function ViewLoyalty() {
             {loyal.map((val, key) => (
                 <div key={key} className="loyals">
                     <ListGroup key={key} horizontal className="my-2">
-                        <ListGroup.Item>{val._id}</ListGroup.Item>
                         <ListGroup.Item>{val.LoyaltyOfferName}</ListGroup.Item>
                         <ListGroup.Item>{val.LoyaltyPrices}</ListGroup.Item>
                         <ListGroup.Item>{val.Store}</ListGroup.Item>
@@ -86,22 +85,22 @@ function ViewLoyalty() {
                             <Form onSubmit={sendData}>
                                 <Form.Group controlId="name">
                                     <Form.Label>Loyalty Offer Name</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.name} onChange={(e) => setLoyaltyOfferName(e.target.value)} required />
+                                    <Form.Control type="text" defaultValue={values.LoyaltyOfferName} onChange={(e) => setLoyaltyOfferName(e.target.value)} required />
                                 </Form.Group>
 
                                 <Form.Group controlId="email">
                                     <Form.Label>Loyalty Prices</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.email} onChange={(e) => setLoyaltyPrices(e.target.value)} required />
+                                    <Form.Control type="text" defaultValue={values.LoyaltyPrices} onChange={(e) => setLoyaltyPrices(e.target.value)} required />
                                 </Form.Group>
 
                                 <Form.Group controlId="contactNumber">
                                     <Form.Label>Store Name</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.contactNumber} onChange={(e) => setStore(e.target.value)} required />
+                                    <Form.Control type="text" defaultValue={values.Store} onChange={(e) => setStore(e.target.value)} required />
                                 </Form.Group>
 
-                                <Form.Group controlId="password">
+                                <Form.Group controlId="description">
                                     <Form.Label>Description</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.password} onChange={(e) => setDescription(e.target.value)} required />
+                                    <Form.Control type="text" defaultValue={values.description} onChange={(e) => setDescription(e.target.value)} required />
                                 </Form.Group>
 
                                 <Button className="finalpay" type="submit">Edit details</Button>

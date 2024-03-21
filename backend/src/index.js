@@ -20,13 +20,13 @@ app.use("/lost", lostRouter);
 const loyaltyRouter = require("./routes/loyaltyRoutes.js");
 app.use("/loyal", loyaltyRouter);
 
-// //store Items router
-// const storeItemRouter = require("./routes/storeItemsRoutes.js");
-// app.use("/item", storeItemRouter);
+//store Items router
+const floorRouter = require("./routes/floorRoutes.js");
+app.use("/floor", floorRouter);
 
-// //promo code router
-// const promoCodeRouter = require("./routes/promoCodeRouter.js");
-// app.use("/promo", promoCodeRouter);
+//promo code router
+const shopRouter = require("./routes/shopRoutes.js");
+app.use("/shop", shopRouter);
 
 // //Package  router
 // const packageRouter = require("./routes/packageRoutes.js");
