@@ -55,7 +55,7 @@ const initialize = async () => {
   
   const startServer = async () => {
     await initialize();
-    app.listen(process.env.PORT || 6000);
+    app.listen(process.env.PORT || 5300);
     console.log('Server started');
   };
   

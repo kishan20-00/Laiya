@@ -21,7 +21,7 @@ export default function AddLoyalty(){
         }
   
         
-        axios.post("http://localhost:6000/loyal/add", newLoyalty).then(()=>{
+        axios.post("http://localhost:5300/loyal/add", newLoyalty).then(()=>{
           alert("Loyalty Details were recorded.");
         }).catch((err)=>{
             alert(err)

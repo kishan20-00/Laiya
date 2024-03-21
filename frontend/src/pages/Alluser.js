@@ -21,7 +21,7 @@ function ViewUsers() {
 
     useEffect(() => {
         function getUsers() {
-            axios.get("http://localhost:6000/user/").then((res) => {
+            axios.get("http://localhost:5300/user/").then((res) => {
                 setUsers(res.data);
             }).catch((err) => {
                 alert(err.message);
@@ -31,7 +31,7 @@ function ViewUsers() {
     }, []);
 
     const deleteUsers = (id) => {
-        axios.delete(`http://localhost:6000/user/delete/${id}`);
+        axios.delete(`http://localhost:5300/user/delete/${id}`);
         alert("User Profile deleted.");
     };
 
@@ -51,7 +51,7 @@ function ViewUsers() {
             password: password || values.password
         };
 
-        axios.put(`http://localhost:6000/user/update/${updatedValues.id}`, updatedValues)
+        axios.put(`http://localhost:5300/user/update/${updatedValues.id}`, updatedValues)
             .then(() => {
                 alert("User Details Updated");
                 handleClose();

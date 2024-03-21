@@ -25,7 +25,7 @@ export default function AddLost(){
         }
   
         
-        axios.post("http://localhost:6000/lost/add", newLost).then(()=>{
+        axios.post("http://localhost:5300/lost/add", newLost).then(()=>{
           alert("Lost Details were recorded.");
         }).catch((err)=>{
             alert(err)

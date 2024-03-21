@@ -21,7 +21,7 @@ function ViewLoyalty() {
 
     useEffect(() => {
         function getLoyal() {
-            axios.get("http://localhost:6000/loyal/").then((res) => {
+            axios.get("http://localhost:5300/loyal/").then((res) => {
                 setLoyal(res.data);
             }).catch((err) => {
                 alert(err.message);
@@ -31,7 +31,7 @@ function ViewLoyalty() {
     }, []);
 
     const deleteLoyal = (id) => {
-        axios.delete(`http://localhost:6000/loyal/delete/${id}`);
+        axios.delete(`http://localhost:5300/loyal/delete/${id}`);
         alert("Loyal Details deleted.");
     };
 
@@ -51,7 +51,7 @@ function ViewLoyalty() {
             description: description || values.description
         };
 
-        axios.put(`http://localhost:6000/loyal/update/${updatedValues.id}`, updatedValues)
+        axios.put(`http://localhost:5300/loyal/update/${updatedValues.id}`, updatedValues)
             .then(() => {
                 alert("Loyal Details Updated");
                 handleClose();

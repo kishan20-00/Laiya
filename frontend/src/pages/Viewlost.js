@@ -23,7 +23,7 @@ function ViewLost() {
 
     useEffect(() => {
         function getLost() {
-            axios.get("http://localhost:6000/lost/").then((res) => {
+            axios.get("http://localhost:5300/lost/").then((res) => {
                 setLost(res.data);
             }).catch((err) => {
                 alert(err.message);
