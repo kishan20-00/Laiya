@@ -80,12 +80,12 @@ export default function AddLoyalty(){
         />
       </Form.Group>
 
-      <Form.Group controlId="password">
+      <Form.Group controlId="description">
         <Form.Label>Decription</Form.Label>
         <Form.Control
-          type="password"
-          placeholder="Enter Password"
-          name="password"
+          type="text"
+          placeholder="Enter Description"
+          name="description"
           onChange={(e)=>{
             setDescription(e.target.value);
           }}

@@ -33,7 +33,7 @@ function ViewLost() {
     }, []);
 
     const deleteLost = (id) => {
-        axios.delete(`http://localhost:6000/lost/delete/${id}`);
+        axios.delete(`http://localhost:5300/lost/delete/${id}`);
         alert("Lost Details deleted.");
     };
 
@@ -55,7 +55,7 @@ function ViewLost() {
             status: status || values.status,
         };
 
-        axios.put(`http://localhost:6000/lost/update/${updatedValues.id}`, updatedValues)
+        axios.put(`http://localhost:5300/lost/update/${updatedValues.id}`, updatedValues)
             .then(() => {
                 alert("Lost Details Updated");
                 handleClose();
@@ -71,7 +71,6 @@ function ViewLost() {
             {lost.map((val, key) => (
                 <div key={key} className="loyals">
                     <ListGroup key={key} horizontal className="my-2">
-                        <ListGroup.Item>{val._id}</ListGroup.Item>
                         <ListGroup.Item>{val.LostItem}</ListGroup.Item>
                         <ListGroup.Item>{val.UserName}</ListGroup.Item>
                         <ListGroup.Item>{val.Image}</ListGroup.Item>
@@ -91,33 +90,33 @@ function ViewLost() {
                         <Modal.Body>
                             <Form onSubmit={sendData}>
                                 <Form.Group controlId="name">
-                                    <Form.Label>Loyalty Offer Name</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.name} onChange={(e) => setLostItem(e.target.value)} required />
+                                    <Form.Label>Lost Item Name</Form.Label>
+                                    <Form.Control type="text" defaultValue={values.LostItem} onChange={(e) => setLostItem(e.target.value)} required />
                                 </Form.Group>
 
                                 <Form.Group controlId="email">
-                                    <Form.Label>Loyalty Prices</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.email} onChange={(e) => setUserName(e.target.value)} required />
+                                    <Form.Label>User Name</Form.Label>
+                                    <Form.Control type="text" defaultValue={values.UserName} onChange={(e) => setUserName(e.target.value)} required />
                                 </Form.Group>
 
                                 <Form.Group controlId="contactNumber">
-                                    <Form.Label>Store Name</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.contactNumber} onChange={(e) => setImage(e.target.value)} required />
+                                    <Form.Label>Image</Form.Label>
+                                    <Form.Control type="text" defaultValue={values.Image} onChange={(e) => setImage(e.target.value)} required />
+                                </Form.Group>
+
+                                <Form.Group controlId="password">
+                                    <Form.Label>Contact Name</Form.Label>
+                                    <Form.Control type="text" defaultValue={values.contactNumber} onChange={(e) => setContactName(e.target.value)} required />
                                 </Form.Group>
 
                                 <Form.Group controlId="password">
                                     <Form.Label>Description</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.password} onChange={(e) => setContactName(e.target.value)} required />
+                                    <Form.Control type="text" defaultValue={values.description} onChange={(e) => setDescription(e.target.value)} required />
                                 </Form.Group>
 
                                 <Form.Group controlId="password">
-                                    <Form.Label>Description</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.password} onChange={(e) => setDescription(e.target.value)} required />
-                                </Form.Group>
-
-                                <Form.Group controlId="password">
-                                    <Form.Label>Description</Form.Label>
-                                    <Form.Control type="text" defaultValue={values.password} onChange={(e) => setStatus(e.target.value)} required />
+                                    <Form.Label>Status</Form.Label>
+                                    <Form.Control type="text" defaultValue={values.status} onChange={(e) => setStatus(e.target.value)} required />
                                 </Form.Group>
 
                                 <Button className="finalpay" type="submit">Edit details</Button>

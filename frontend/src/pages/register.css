@@ -1,0 +1,42 @@
+/* register.css */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-form {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.register-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register-form form {
+    margin-bottom: 0;
+}
+
+.register-form .form-group {
+    margin-bottom: 20px;
+}
+
+.register-form label {
+    font-weight: bold;
+}
+
+.register-form .btn-primary {
+    width: 100%;
+}
+
+.regbutton{
+    position: relative;
+    top: 10px;
+}

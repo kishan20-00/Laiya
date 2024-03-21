@@ -5,22 +5,13 @@ exports.addNewLoyalty= async (req, res) => {
  
     //constant variables for the attributes
     const {
-        LoyaltyID,
         LoyaltyOfferName,
         LoyaltyPrices,
         Store,
         description,
      } = req.body;
   
-  
-    loyaltyDetails.findOne({LoyaltyID: LoyaltyID})
-      .then((savedLoyalty) => {
-          if(savedLoyalty) {
-              return res.status(422).json({error:"Loyalty Details already exists with that no"})
-          }
-  
           const newLoyalty = new loyaltyDetails({
-            LoyaltyID,
         LoyaltyOfferName,
         LoyaltyPrices,
         Store,
@@ -34,10 +25,10 @@ exports.addNewLoyalty= async (req, res) => {
           
         })
       
-    }).catch((err) =>{
+    .catch((err) =>{
         
     })
-    }
+    };
 
 //delete existing one
 exports.deleteLoyalty = async (req, res) => {
